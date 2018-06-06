@@ -52,23 +52,7 @@ class PhpunitTestCommand(sublime_plugin.WindowCommand):
         return phpunit_config_path
 
     def find_phpunit_bin(self, directory):
-        search_paths = [
-            'vendor/bin/phpunit',
-            'vendor/bin/phpunit/phpunit/phpunit',
-        ]
-
-        found = False;
-        for path in search_paths:
-            if False == found:
-                binpath = os.path.realpath(directory + "/" + path)
-
-                if os.path.isfile(binpath.replace("\\", "")):
-                    found = True
-
-        if False == found:
-            binpath = 'phpunit'
-
-        return binpath
+        return 'phpunit'
 
     def run_in_terminal(self, command):
         osascript_command = 'osascript '
